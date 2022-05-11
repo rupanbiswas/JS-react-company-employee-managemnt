@@ -1,24 +1,29 @@
-import logo from './logo.svg';
-import './App.css';
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+import AddCompany from './screens/AddCompany';
+import Homepage from './screens/Homepage';
+import AddUser from './screens/AddUser';
+import DeleteCompany from './screens/DeleteCompany';
+import ListUsers from './screens/ListUsers';
+import UsersByCompany from './screens/UsersByCompany';
+import AllotUser from './screens/AllotUser';
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Router>
+      <Routes>
+        <Route path='/' element={<Homepage />} exact></Route>
+        <Route path='/addCompany' element={<AddCompany />} exact></Route>
+        <Route path='/addUser' element={<AddUser />} exact></Route>
+        <Route path='/deleteCompany' element={<DeleteCompany />} exact></Route>
+        <Route path='/listUsers' element={<ListUsers />} exact></Route>
+        <Route path='/allots' element={<AllotUser />} exact></Route>
+        <Route
+          path='/usersByCompany'
+          element={<UsersByCompany />}
+          exact
+        ></Route>
+      </Routes>
+    </Router>
   );
 }
 
